@@ -12,6 +12,21 @@
 			"item": [
 				{
 					"name": "Get all accounts based on provided filters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d3449d1d-26f3-4706-8ddb-3a25886fdd6c",
+								"exec": [
+									"pm.test('Successful request', function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "23b2c0c6-e044-44d6-a21a-faa74e6561ab",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true

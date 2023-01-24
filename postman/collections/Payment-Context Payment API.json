@@ -1,0 +1,1614 @@
+{
+	"info": {
+		"_postman_id": "073d5459-8fc3-4678-a18c-1b48e6c5bb82",
+		"name": "Payment-Context Payment API",
+		"description": "Payment API for Payment-Context\n\nContact Support:\n Name: Payments\n Email: payments@carepay.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "12738704-073d5459-8fc3-4678-a18c-1b48e6c5bb82"
+	},
+	"item": [
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "Get all accounts based on provided filters",
+					"id": "23b2c0c6-e044-44d6-a21a-faa74e6561ab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts?accountNumbers=[\"culp\",\"mollit eu commodo anim\"]&accountStatuses=[\"ACTIVATED\",\"SUSPENDED\"]",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "accountNumbers",
+									"value": "[\"culp\",\"mollit eu commodo anim\"]",
+									"description": "(Required) "
+								},
+								{
+									"key": "accountStatuses",
+									"value": "[\"ACTIVATED\",\"SUSPENDED\"]",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "0305549d-638a-493e-b037-733d8fc51bc2",
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts?accountNumbers=<string>,<string>&accountStatuses=<string>,<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts"
+									],
+									"query": [
+										{
+											"key": "accountNumbers",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "accountStatuses",
+											"value": "<string>,<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"internalRef\": \"Duis et incididunt culpa ipsum\",\n    \"accountNumber\": \"mollit aute exercitation ipsum amet\",\n    \"accountStatus\": \"<string>\"\n  },\n  {\n    \"internalRef\": \"exercitation dolore tempor ea\",\n    \"accountNumber\": \"commodo reprehenderit minim ullamco no\",\n    \"accountStatus\": \"<string>\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get an account corresponding to provided internalRef",
+					"id": "cde3c573-a8b1-4fd4-af31-b429d8db8080",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/:internalRef",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								":internalRef"
+							],
+							"variable": [
+								{
+									"key": "internalRef",
+									"value": "sint veniam dolor commodo",
+									"description": "(Required) InternalRef of the account to fetch"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "f8b85328-028e-4c3a-8604-4bac3a646531",
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts/:internalRef",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts",
+										":internalRef"
+									],
+									"variable": [
+										{
+											"key": "internalRef",
+											"value": "sint veniam dolor commodo",
+											"description": "(Required) InternalRef of the account to fetch"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"internalRef\": \"qui dolore eiusmod et\",\n  \"accountNumber\": \"aliqua\",\n  \"accountStatus\": \"<string>\"\n}"
+						},
+						{
+							"id": "56678e95-45ad-4cb0-8265-6faeed342136",
+							"name": "An account with the provided internalRef doesn't exist",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts/:internalRef",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts",
+										":internalRef"
+									],
+									"variable": [
+										{
+											"key": "internalRef",
+											"value": "sint veniam dolor commodo",
+											"description": "(Required) InternalRef of the account to fetch"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "512292ec-694d-46ce-bca5-b6a646c6374e"
+		},
+		{
+			"name": "audit",
+			"item": [
+				{
+					"name": "{requestId}",
+					"item": [
+						{
+							"name": "Get the events by requestId",
+							"id": "e3183dc6-1e35-43ab-95b4-a560e42c7dad",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/audit/:requestId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"audit",
+										":requestId"
+									],
+									"variable": [
+										{
+											"key": "requestId",
+											"value": "urn:uuid:c8d03e6e-d649-fba0-85a7-9a3d5b8492c3",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "c46c4a37-7b23-4e09-92c0-c9745013ebbc",
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/audit/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"audit",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId",
+													"value": "urn:uuid:c8d03e6e-d649-fba0-85a7-9a3d5b8492c3",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": 26844493,\n    \"dateCreated\": \"1966-02-11T18:12:50.952Z\",\n    \"requestId\": \"122d6c60-7234-40fe-f1f1-e0895e29d3e4\",\n    \"topic\": \"occaec\",\n    \"eventType\": \"ullamco fugiat proident in minim\"\n  },\n  {\n    \"id\": -2642651,\n    \"dateCreated\": \"2017-05-24T05:31:49.149Z\",\n    \"requestId\": \"272658a9-0fd9-9cc0-6caa-5db839f2d8d5\",\n    \"topic\": \"ullamco exercitation dolo\",\n    \"eventType\": \"minim nostrud \"\n  }\n]"
+								},
+								{
+									"id": "9174f236-73d1-4cd4-b0dd-4cfa8c1c9b55",
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/audit/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"audit",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId",
+													"value": "urn:uuid:c8d03e6e-d649-fba0-85a7-9a3d5b8492c3",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "27b71abf-3ed0-4c8c-9344-9dd3f6ef2199",
+									"name": "The audit record requested does not exist",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/audit/:requestId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"audit",
+												":requestId"
+											],
+											"variable": [
+												{
+													"key": "requestId",
+													"value": "urn:uuid:c8d03e6e-d649-fba0-85a7-9a3d5b8492c3",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Gets the audit record data by requestId and eventId",
+							"id": "fc80da4d-b444-459c-b599-6e7d8ad6ef0c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/audit/:requestId/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"audit",
+										":requestId",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "requestId",
+											"value": "urn:uuid:c8d03e6e-d649-fba0-85a7-9a3d5b8492c3",
+											"description": "(Required) "
+										},
+										{
+											"key": "eventId",
+											"value": "-71174379",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "8f6a2184-4aaf-4a4e-b065-295ebd6d5710",
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/audit/:requestId/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"audit",
+												":requestId",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "requestId",
+													"value": "urn:uuid:c8d03e6e-d649-fba0-85a7-9a3d5b8492c3",
+													"description": "(Required) "
+												},
+												{
+													"key": "eventId",
+													"value": "-71174379",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"headers\": {\n    \"ex_44b\": {}\n  },\n  \"value\": {\n    \"eu_64\": {}\n  }\n}"
+								},
+								{
+									"id": "8c9bc139-1955-430e-883c-18ee9a4e3c26",
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/audit/:requestId/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"audit",
+												":requestId",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "requestId",
+													"value": "urn:uuid:c8d03e6e-d649-fba0-85a7-9a3d5b8492c3",
+													"description": "(Required) "
+												},
+												{
+													"key": "eventId",
+													"value": "-71174379",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "2bf6baea-153b-4e96-acad-e405d814e4f6",
+									"name": "The audit record requested does not exist",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/audit/:requestId/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"audit",
+												":requestId",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "requestId",
+													"value": "urn:uuid:c8d03e6e-d649-fba0-85a7-9a3d5b8492c3",
+													"description": "(Required) "
+												},
+												{
+													"key": "eventId",
+													"value": "-71174379",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "4db2e245-a45e-4c31-b9b8-a769c8743543"
+				},
+				{
+					"name": "Get all the FailedEvents for the given search parameters",
+					"id": "21df8c12-38cc-4f49-835d-ed0a650d88ff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/audit/failed-events?createdFrom=2001-02-21T15:15:51.514Z&createdTo=1954-02-19T13:14:31.361Z&requestId=69dd8cdb-412b-0e71-0048-081d48c2bab1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"audit",
+								"failed-events"
+							],
+							"query": [
+								{
+									"key": "createdFrom",
+									"value": "2001-02-21T15:15:51.514Z",
+									"description": "(Required) "
+								},
+								{
+									"key": "createdTo",
+									"value": "1954-02-19T13:14:31.361Z",
+									"description": "(Required) "
+								},
+								{
+									"key": "requestId",
+									"value": "69dd8cdb-412b-0e71-0048-081d48c2bab1",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "d4a005ad-5412-42e6-8c06-8a51e51f8379",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/audit/failed-events?createdFrom=<dateTime>&createdTo=<dateTime>&requestId=<uuid>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"audit",
+										"failed-events"
+									],
+									"query": [
+										{
+											"key": "createdFrom",
+											"value": "<dateTime>"
+										},
+										{
+											"key": "createdTo",
+											"value": "<dateTime>"
+										},
+										{
+											"key": "requestId",
+											"value": "<uuid>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"dateCreated\": \"1991-12-14T23:54:00.263Z\",\n    \"requestId\": \"urn:uuid:c07037b7-57e1-c396-be3e-e62a20f27e4c\",\n    \"errorMessages\": [\n      \"dolore minim aliqua labore occaecat\",\n      \"u\"\n    ]\n  },\n  {\n    \"dateCreated\": \"2011-10-04T06:46:48.417Z\",\n    \"requestId\": \"5be30c50-aff7-dc69-c108-4e691327a7bc\",\n    \"errorMessages\": [\n      \"amet adipisicing eu sit\",\n      \"aliquip in ut culpa\"\n    ]\n  }\n]"
+						},
+						{
+							"id": "9290b435-3a08-4b5e-b144-cf2a509a7f99",
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/audit/failed-events?createdFrom=<dateTime>&createdTo=<dateTime>&requestId=<uuid>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"audit",
+										"failed-events"
+									],
+									"query": [
+										{
+											"key": "createdFrom",
+											"value": "<dateTime>"
+										},
+										{
+											"key": "createdTo",
+											"value": "<dateTime>"
+										},
+										{
+											"key": "requestId",
+											"value": "<uuid>"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "c0ff6640-48e8-4b2a-9639-0ca58fd8a77f"
+		},
+		{
+			"name": "contracts",
+			"item": [
+				{
+					"name": "{internalRef}",
+					"item": [
+						{
+							"name": "Get a contract corresponding to provided internalRef",
+							"id": "6d7e05b3-57e3-4605-b40a-ec031b403307",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/contracts/:internalRef",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contracts",
+										":internalRef"
+									],
+									"variable": [
+										{
+											"key": "internalRef",
+											"value": "sint veniam dolor commodo",
+											"description": "(Required) InternalRef of the contract to fetch"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "ca0055bd-7c89-46fa-bd99-5f2832a1f9fc",
+									"name": "Successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/contracts/:internalRef",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"contracts",
+												":internalRef"
+											],
+											"variable": [
+												{
+													"key": "internalRef",
+													"value": "sint veniam dolor commodo",
+													"description": "(Required) InternalRef of the contract to fetch"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"internalRef\": \"amet ut\",\n  \"orderingParty\": {\n    \"ownerRef\": \"irure minim sunt\",\n    \"ownerType\": \"<string>\"\n  },\n  \"counterParty\": {\n    \"ownerRef\": \"laborum sed adipisicing\",\n    \"ownerType\": \"<string>\"\n  },\n  \"paymentTerms\": {\n    \"dateType\": \"SUBMIT_DATE\",\n    \"delayType\": \"IMMEDIATE\",\n    \"delay\": -751541\n  }\n}"
+								},
+								{
+									"id": "bf467050-5eb9-4517-b898-9e8c6766b528",
+									"name": "A contract with the provided internalRef doesn't exist",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/contracts/:internalRef",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"contracts",
+												":internalRef"
+											],
+											"variable": [
+												{
+													"key": "internalRef",
+													"value": "sint veniam dolor commodo",
+													"description": "(Required) InternalRef of the contract to fetch"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update an existing contract",
+							"id": "b2787004-6617-4a75-b1f7-b5f4ad9ce567",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"paymentTerms\": {\n    \"dateType\": \"TREATMENT_DATE\",\n    \"delayType\": \"END_OF_MONTH\",\n    \"delay\": 81601070\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/contracts/:internalRef",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contracts",
+										":internalRef"
+									],
+									"variable": [
+										{
+											"key": "internalRef",
+											"value": "sint veniam dolor commodo",
+											"description": "(Required) internalRef of the contract to be updated"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "359b04b1-5cf5-4f31-a7c9-5456f657d41a",
+									"name": "Successful operation",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"paymentTerms\": {\n    \"dateType\": \"TREATMENT_DATE\",\n    \"delayType\": \"END_OF_MONTH\",\n    \"delay\": 81601070\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/contracts/:internalRef",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"contracts",
+												":internalRef"
+											],
+											"variable": [
+												{
+													"key": "internalRef",
+													"value": "sint veniam dolor commodo",
+													"description": "(Required) internalRef of the contract to be updated"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"internalRef\": \"amet ut\",\n  \"orderingParty\": {\n    \"ownerRef\": \"irure minim sunt\",\n    \"ownerType\": \"<string>\"\n  },\n  \"counterParty\": {\n    \"ownerRef\": \"laborum sed adipisicing\",\n    \"ownerType\": \"<string>\"\n  },\n  \"paymentTerms\": {\n    \"dateType\": \"SUBMIT_DATE\",\n    \"delayType\": \"IMMEDIATE\",\n    \"delay\": -751541\n  }\n}"
+								},
+								{
+									"id": "47fa4360-d916-4421-8f94-bd91a3fa9aaa",
+									"name": "An contract with the provided internalRef doesn't exist",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"paymentTerms\": {\n    \"dateType\": \"TREATMENT_DATE\",\n    \"delayType\": \"END_OF_MONTH\",\n    \"delay\": 81601070\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/contracts/:internalRef",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"contracts",
+												":internalRef"
+											],
+											"variable": [
+												{
+													"key": "internalRef",
+													"value": "sint veniam dolor commodo",
+													"description": "(Required) internalRef of the contract to be updated"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "835c9e0e-5df1-4aa9-a4bd-a669fda2b99e",
+									"name": "A contract for the combination `ordering and counter party` already exists",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"paymentTerms\": {\n    \"dateType\": \"TREATMENT_DATE\",\n    \"delayType\": \"END_OF_MONTH\",\n    \"delay\": 81601070\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/contracts/:internalRef",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"contracts",
+												":internalRef"
+											],
+											"variable": [
+												{
+													"key": "internalRef",
+													"value": "sint veniam dolor commodo",
+													"description": "(Required) internalRef of the contract to be updated"
+												}
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "8fc2eae6-3a8d-4e96-aa59-67f1a1518d82"
+				},
+				{
+					"name": "Get all contracts based on provided filters",
+					"id": "7b58e20e-e975-45fd-85f4-f594726d17d8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/contracts?orderingPartyOwnerType=PAYER&orderingPartyOwnerRefs=[\"consectetur quis amet deserun\",\"pariatur\"]&counterPartyOwnerType=PARTICIPANT&counterPartyOwnerRefs=[\"occaecat proident nostrud deserunt labore\",\"ullamco labor\"]",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contracts"
+							],
+							"query": [
+								{
+									"key": "orderingPartyOwnerType",
+									"value": "PAYER",
+									"description": "(Required) "
+								},
+								{
+									"key": "orderingPartyOwnerRefs",
+									"value": "[\"consectetur quis amet deserun\",\"pariatur\"]",
+									"description": "(Required) "
+								},
+								{
+									"key": "counterPartyOwnerType",
+									"value": "PARTICIPANT",
+									"description": "(Required) "
+								},
+								{
+									"key": "counterPartyOwnerRefs",
+									"value": "[\"occaecat proident nostrud deserunt labore\",\"ullamco labor\"]",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "6785d61c-871f-4459-82d1-875ac0deae54",
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/contracts?orderingPartyOwnerType=<string>&orderingPartyOwnerRefs=<string>,<string>&counterPartyOwnerType=<string>&counterPartyOwnerRefs=<string>,<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contracts"
+									],
+									"query": [
+										{
+											"key": "orderingPartyOwnerType",
+											"value": "<string>"
+										},
+										{
+											"key": "orderingPartyOwnerRefs",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "counterPartyOwnerType",
+											"value": "<string>"
+										},
+										{
+											"key": "counterPartyOwnerRefs",
+											"value": "<string>,<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"internalRef\": \"voluptate aliqua in\",\n    \"orderingParty\": {\n      \"ownerRef\": \"elit et dolor\",\n      \"ownerType\": \"<string>\"\n    },\n    \"counterParty\": {\n      \"ownerRef\": \"deserunt elit dolore\",\n      \"ownerType\": \"<string>\"\n    },\n    \"paymentTerms\": {\n      \"dateType\": \"TREATMENT_DATE\",\n      \"delayType\": \"IMMEDIATE\",\n      \"delay\": 20453216\n    }\n  },\n  {\n    \"internalRef\": \"eu cupidatat ut\",\n    \"orderingParty\": {\n      \"ownerRef\": \"ex non aliqua anim\",\n      \"ownerType\": \"<string>\"\n    },\n    \"counterParty\": {\n      \"ownerRef\": \"qui\",\n      \"ownerType\": \"<string>\"\n    },\n    \"paymentTerms\": {\n      \"dateType\": \"APPROVAL_DATE\",\n      \"delayType\": \"IMMEDIATE\",\n      \"delay\": -10242585\n    }\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a new contract",
+					"id": "b1397264-9f81-49cc-8c73-c2cdbbaac994",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"orderingParty\": {\n    \"ownerRef\": \"sed officia\",\n    \"ownerType\": \"<string>\"\n  },\n  \"paymentTerms\": {\n    \"dateType\": \"APPROVAL_DATE\",\n    \"delayType\": \"END_OF_MONTH\",\n    \"delay\": -51927765\n  },\n  \"counterParty\": {\n    \"ownerRef\": \"tempor eu in non\",\n    \"ownerType\": \"<string>\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/contracts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contracts"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "1153a751-e2b4-4758-94a9-2cfddb09ec69",
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"orderingParty\": {\n    \"ownerRef\": \"sed officia\",\n    \"ownerType\": \"<string>\"\n  },\n  \"paymentTerms\": {\n    \"dateType\": \"APPROVAL_DATE\",\n    \"delayType\": \"END_OF_MONTH\",\n    \"delay\": -51927765\n  },\n  \"counterParty\": {\n    \"ownerRef\": \"tempor eu in non\",\n    \"ownerType\": \"<string>\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/contracts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contracts"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"internalRef\": \"amet ut\",\n  \"orderingParty\": {\n    \"ownerRef\": \"irure minim sunt\",\n    \"ownerType\": \"<string>\"\n  },\n  \"counterParty\": {\n    \"ownerRef\": \"laborum sed adipisicing\",\n    \"ownerType\": \"<string>\"\n  },\n  \"paymentTerms\": {\n    \"dateType\": \"SUBMIT_DATE\",\n    \"delayType\": \"IMMEDIATE\",\n    \"delay\": -751541\n  }\n}"
+						},
+						{
+							"id": "d93730db-2b62-4481-8ab1-1eabca76c778",
+							"name": "A contract for the combination `ordering and counter party` already exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"orderingParty\": {\n    \"ownerRef\": \"sed officia\",\n    \"ownerType\": \"<string>\"\n  },\n  \"paymentTerms\": {\n    \"dateType\": \"APPROVAL_DATE\",\n    \"delayType\": \"END_OF_MONTH\",\n    \"delay\": -51927765\n  },\n  \"counterParty\": {\n    \"ownerRef\": \"tempor eu in non\",\n    \"ownerType\": \"<string>\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/contracts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contracts"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "a5e7f93f-5758-4291-89fb-1baf71049ead"
+		},
+		{
+			"name": "payments/remittance-request",
+			"item": [
+				{
+					"name": "Get all remittance-requests based on provided filters",
+					"id": "ed554d77-b1f3-4c53-b885-e2bd1e9b2807",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/payments/remittance-request?paymentInternalRefs=[\"nis\",\"minim\"]&externalRefs=[\"ut Lorem dolore dolore\",\"dolore id ullamco\"]&orderingPartyOwnerRefs=[\"dolor eu\",\"dolore incididunt velit consectetur\"]&orderingPartyAccountNumbers=[\"laborum Ut\",\"consequat dolore in magna qui\"]&counterPartyOwnerRefs=[\"cillum exercitation\",\"elit do minim sunt\"]&counterPartyAccountNumbers=[\"laborum aliquip consectetur\",\"dolor reprehenderit voluptate deserunt culpa\"]",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments",
+								"remittance-request"
+							],
+							"query": [
+								{
+									"key": "paymentInternalRefs",
+									"value": "[\"nis\",\"minim\"]",
+									"description": "(Required) "
+								},
+								{
+									"key": "externalRefs",
+									"value": "[\"ut Lorem dolore dolore\",\"dolore id ullamco\"]",
+									"description": "(Required) "
+								},
+								{
+									"key": "orderingPartyOwnerRefs",
+									"value": "[\"dolor eu\",\"dolore incididunt velit consectetur\"]",
+									"description": "(Required) "
+								},
+								{
+									"key": "orderingPartyAccountNumbers",
+									"value": "[\"laborum Ut\",\"consequat dolore in magna qui\"]",
+									"description": "(Required) "
+								},
+								{
+									"key": "counterPartyOwnerRefs",
+									"value": "[\"cillum exercitation\",\"elit do minim sunt\"]",
+									"description": "(Required) "
+								},
+								{
+									"key": "counterPartyAccountNumbers",
+									"value": "[\"laborum aliquip consectetur\",\"dolor reprehenderit voluptate deserunt culpa\"]",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "ff1a4bfd-bb9d-4418-9eb7-c4f0d7ace33e",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/payments/remittance-request?paymentInternalRefs=<string>,<string>&externalRefs=<string>,<string>&orderingPartyOwnerRefs=<string>,<string>&orderingPartyAccountNumbers=<string>,<string>&counterPartyOwnerRefs=<string>,<string>&counterPartyAccountNumbers=<string>,<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments",
+										"remittance-request"
+									],
+									"query": [
+										{
+											"key": "paymentInternalRefs",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "externalRefs",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "orderingPartyOwnerRefs",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "orderingPartyAccountNumbers",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "counterPartyOwnerRefs",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "counterPartyAccountNumbers",
+											"value": "<string>,<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"remittanceRequestAggregate\": {\n      \"internalRef\": \"laborum ullamco dolor\",\n      \"type\": \"REIMBURSEMENT\",\n      \"externalRef\": \"aliquip\",\n      \"remittanceInformation\": \"commodo\",\n      \"orderingParty\": {\n        \"ownerType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ownerRef\": \"velit ullamco dolor mollit\",\n        \"accountNumber\": \"voluptate reprehenderit adipisicing\",\n        \"accountInternalRef\": \"ipsum non\"\n      },\n      \"counterParty\": {\n        \"ownerType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ownerRef\": \"ullamco aliquip eiusmod\",\n        \"accountNumber\": \"magna \",\n        \"accountInternalRef\": \"et cillum dolore\"\n      },\n      \"monetaryAmount\": {\n        \"amount\": -12320013.851881534,\n        \"currency\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"treatmentDate\": \"2004-02-08T10:06:06.680Z\",\n      \"submitDate\": \"1963-02-08T17:45:18.843Z\",\n      \"approvalDate\": \"1944-01-01T00:10:17.618Z\",\n      \"requestedExecutionDate\": \"1980-06-05T03:40:20.025Z\",\n      \"paymentTerms\": {\n        \"dateType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"delayType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"delay\": -43545610\n      },\n      \"calculatedExecutionDate\": \"1953-02-05T11:46:43.934Z\",\n      \"orderInternalRef\": \"labore adipisicing officia fugiat eu\",\n      \"paymentInternalRef\": \"consectetur fugiat consequat est quis\",\n      \"createdBy\": \"ut exercitation\"\n    },\n    \"firstCreated\": \"1978-04-09T04:30:38.990Z\"\n  },\n  {\n    \"remittanceRequestAggregate\": {\n      \"internalRef\": \"eu\",\n      \"type\": \"CASHLESS\",\n      \"externalRef\": \"Excepteur sed\",\n      \"remittanceInformation\": \"dolor qui veniam\",\n      \"orderingParty\": {\n        \"ownerType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ownerRef\": \"sint consectetur\",\n        \"accountNumber\": \"consequat enim commodo sed\",\n        \"accountInternalRef\": \"anim Lorem ad ipsum\"\n      },\n      \"counterParty\": {\n        \"ownerType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ownerRef\": \"laboris Excepteur\",\n        \"accountNumber\": \"cillum cupidata\",\n        \"accountInternalRef\": \"non dolor\"\n      },\n      \"monetaryAmount\": {\n        \"amount\": 76396229.85476407,\n        \"currency\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"treatmentDate\": \"2001-01-30T23:36:15.034Z\",\n      \"submitDate\": \"2015-09-16T00:02:01.093Z\",\n      \"approvalDate\": \"1991-07-08T00:50:30.266Z\",\n      \"requestedExecutionDate\": \"2022-07-18T07:47:22.671Z\",\n      \"paymentTerms\": {\n        \"dateType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"delayType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"delay\": 95454409\n      },\n      \"calculatedExecutionDate\": \"2022-09-24T08:26:02.329Z\",\n      \"orderInternalRef\": \"nisi eu id\",\n      \"paymentInternalRef\": \"amet Ut\",\n      \"createdBy\": \"Lorem velit culpa\"\n    },\n    \"firstCreated\": \"2022-07-31T06:11:21.839Z\"\n  }\n]"
+						},
+						{
+							"id": "c4e151d5-c962-4f0b-8259-8be4ff1fb0fd",
+							"name": "Invalid request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/payments/remittance-request?paymentInternalRefs=<string>,<string>&externalRefs=<string>,<string>&orderingPartyOwnerRefs=<string>,<string>&orderingPartyAccountNumbers=<string>,<string>&counterPartyOwnerRefs=<string>,<string>&counterPartyAccountNumbers=<string>,<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments",
+										"remittance-request"
+									],
+									"query": [
+										{
+											"key": "paymentInternalRefs",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "externalRefs",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "orderingPartyOwnerRefs",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "orderingPartyAccountNumbers",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "counterPartyOwnerRefs",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "counterPartyAccountNumbers",
+											"value": "<string>,<string>"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Submit a `remittance request`",
+					"id": "b9745b7d-7b29-4709-baaa-b63c48e7885c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"approvalDate\": \"2002-08-30T14:54:53.413Z\",\n  \"counterParty\": {\n    \"ownerType\": \"<string>\",\n    \"ownerRef\": \"tempor Excepteur cil\",\n    \"accountNumber\": \"anim Lorem exercitation\",\n    \"accountInternalRef\": \"magna ex fugiat\"\n  },\n  \"externalRef\": \"p\",\n  \"monetaryAmount\": {\n    \"amount\": 33062239.750626028,\n    \"currency\": {\n      \"currencyCode\": \"deserunt amet nostrud\",\n      \"defaultFractionDigits\": 76027473,\n      \"numericCode\": 83802091,\n      \"displayName\": \"ex dolore in\",\n      \"symbol\": \"laborum amet\",\n      \"numericCodeAsString\": \"cillum sint consequat\"\n    }\n  },\n  \"orderingParty\": {\n    \"ownerType\": \"<string>\",\n    \"ownerRef\": \"incididunt dolore dolore \",\n    \"accountNumber\": \"et qui officia\",\n    \"accountInternalRef\": \"dolore Ut eu in labore\"\n  },\n  \"remittanceInformation\": \"ex elit\",\n  \"submitDate\": \"1983-02-25T10:38:47.286Z\",\n  \"treatmentDate\": \"1987-03-04T12:01:38.536Z\",\n  \"type\": \"REIMBURSEMENT\",\n  \"requestedExecutionDate\": \"1951-01-08T01:35:24.510Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments/remittance-request",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments",
+								"remittance-request"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "18840eb9-2da1-42f6-ac03-8904154f81fe",
+							"name": "Order creation is in progress",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"approvalDate\": \"2002-08-30T14:54:53.413Z\",\n  \"counterParty\": {\n    \"ownerType\": \"<string>\",\n    \"ownerRef\": \"tempor Excepteur cil\",\n    \"accountNumber\": \"anim Lorem exercitation\",\n    \"accountInternalRef\": \"magna ex fugiat\"\n  },\n  \"externalRef\": \"p\",\n  \"monetaryAmount\": {\n    \"amount\": 33062239.750626028,\n    \"currency\": {\n      \"currencyCode\": \"deserunt amet nostrud\",\n      \"defaultFractionDigits\": 76027473,\n      \"numericCode\": 83802091,\n      \"displayName\": \"ex dolore in\",\n      \"symbol\": \"laborum amet\",\n      \"numericCodeAsString\": \"cillum sint consequat\"\n    }\n  },\n  \"orderingParty\": {\n    \"ownerType\": \"<string>\",\n    \"ownerRef\": \"incididunt dolore dolore \",\n    \"accountNumber\": \"et qui officia\",\n    \"accountInternalRef\": \"dolore Ut eu in labore\"\n  },\n  \"remittanceInformation\": \"ex elit\",\n  \"submitDate\": \"1983-02-25T10:38:47.286Z\",\n  \"treatmentDate\": \"1987-03-04T12:01:38.536Z\",\n  \"type\": \"REIMBURSEMENT\",\n  \"requestedExecutionDate\": \"1951-01-08T01:35:24.510Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payments/remittance-request",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments",
+										"remittance-request"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"requestId\": \"urn:uuid:b9b9e2fa-a4c6-2c9c-9cfc-d2a64d7150f3\"\n}"
+						},
+						{
+							"id": "94c6aaf6-a90b-4166-ac2a-1fba969f057e",
+							"name": "A contract for the combination `ordering party and counter party` does not exists or no account can be found for the `ordering party`",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"approvalDate\": \"2002-08-30T14:54:53.413Z\",\n  \"counterParty\": {\n    \"ownerType\": \"<string>\",\n    \"ownerRef\": \"tempor Excepteur cil\",\n    \"accountNumber\": \"anim Lorem exercitation\",\n    \"accountInternalRef\": \"magna ex fugiat\"\n  },\n  \"externalRef\": \"p\",\n  \"monetaryAmount\": {\n    \"amount\": 33062239.750626028,\n    \"currency\": {\n      \"currencyCode\": \"deserunt amet nostrud\",\n      \"defaultFractionDigits\": 76027473,\n      \"numericCode\": 83802091,\n      \"displayName\": \"ex dolore in\",\n      \"symbol\": \"laborum amet\",\n      \"numericCodeAsString\": \"cillum sint consequat\"\n    }\n  },\n  \"orderingParty\": {\n    \"ownerType\": \"<string>\",\n    \"ownerRef\": \"incididunt dolore dolore \",\n    \"accountNumber\": \"et qui officia\",\n    \"accountInternalRef\": \"dolore Ut eu in labore\"\n  },\n  \"remittanceInformation\": \"ex elit\",\n  \"submitDate\": \"1983-02-25T10:38:47.286Z\",\n  \"treatmentDate\": \"1987-03-04T12:01:38.536Z\",\n  \"type\": \"REIMBURSEMENT\",\n  \"requestedExecutionDate\": \"1951-01-08T01:35:24.510Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payments/remittance-request",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments",
+										"remittance-request"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "864a3d87-c1df-47a5-8496-8055fd1e44ca"
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearerToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"id": "03b915c4-474f-4ffb-aafa-a87300e772d9",
+			"key": "baseUrl",
+			"value": "https://api.ae-test.carepay.dev/api/payment-context/",
+			"type": "string"
+		}
+	]
+}
